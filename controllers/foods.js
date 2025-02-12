@@ -30,7 +30,7 @@ router.delete("/:itemId", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
 
-    currentUser.pantry.id(req.params.itemId).deleteone();
+    currentUser.pantry.id(req.params.itemId).deleteOne();
 
     await currentUser.save();
     res.redirect(`/users/${currentUser._id}/foods`);
